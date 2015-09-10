@@ -3,7 +3,6 @@ package com.argo.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -20,30 +19,7 @@ import java.util.List;
 public class IpUtil {
 	
 	protected static Logger logger = LoggerFactory.getLogger(IpUtil.class);
-	
-	/**
-	 * 获取用户ip地址（在apache代理后需要从头文件中获取ip）
-	 * 
-	 * @param request
-	 * @return
-	 */
-	public static String getIpAddress(HttpServletRequest request) {
-		String ip = request.getHeader("x-forwarded-for");
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("Proxy-Client-IP");
-		}
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("WL-Proxy-Client-IP");
-		}
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("X-Real-IP");
-		}
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getRemoteAddr();
-		}
-		return ip;
-	}
-	
+
 	public static String[] getHostServerIp(){
 		try {
 			Enumeration<NetworkInterface> ifs = NetworkInterface.getNetworkInterfaces();
