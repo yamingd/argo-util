@@ -41,7 +41,7 @@ public class JsonUtil {
      * @param json
      * @param itemType
      * @param <T>
-     * @return
+     * @return List
      * @throws Exception
      */
     public static <T> List<T> asList(String json, final T[] itemType)throws Exception {
@@ -54,7 +54,7 @@ public class JsonUtil {
      * @param json
      * @param itemType
      * @param <T>
-     * @return
+     * @return List
      * @throws Exception
      */
     public static <T> List<T> asList(byte[] json, final T[] itemType)throws Exception {
@@ -66,7 +66,7 @@ public class JsonUtil {
      * @param clazz
      * @param json
      * @param <T>
-     * @return
+     * @return T
      */
     @SuppressWarnings("unchecked")
     public static <T> T asT(Class<?> clazz, String json) {
@@ -79,7 +79,7 @@ public class JsonUtil {
      * @param clazz
      * @param json
      * @param <T>
-     * @return
+     * @return T
      * @throws IOException
      */
     public static <T> T asT(Class<?> clazz, byte[] json) throws IOException {
@@ -92,7 +92,7 @@ public class JsonUtil {
      * 将一个对象转成json字符串
      *
      * @param obj
-     * @return
+     * @return String
      */
     public static String toJson(Object obj) {
         return gson.toJson(obj);
@@ -101,7 +101,7 @@ public class JsonUtil {
     /**
      * 转为二进制JSON.
      * @param obj
-     * @return
+     * @return byte[]
      * @throws Exception
      */
     public static <T> byte[] toBytes(T obj) throws Exception {
@@ -114,13 +114,19 @@ public class JsonUtil {
     /**
      *
      * @param json
-     * @return
+     * @return Map
      */
     public static Map<String, Object> asMap(String json) {
         if (json == null) return null;
         return gson.fromJson(json, HashMap.class);
     }
 
+    /**
+     *
+     * @param json
+     * @return HashMap
+     * @throws IOException
+     */
     public static HashMap asMap(byte[] json) throws IOException {
         if (json == null)
             return null;
