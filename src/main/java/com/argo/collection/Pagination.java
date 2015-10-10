@@ -8,7 +8,7 @@ import java.util.List;
  * 分页器
  * Created by Yaming on 2014/11/14.
  */
-public class Pagination<T extends Comparable> implements Serializable {
+public class Pagination<T> implements Serializable {
 
     /**
      * 页码
