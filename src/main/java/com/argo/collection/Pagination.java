@@ -93,7 +93,7 @@ public class Pagination<T> implements Serializable {
 
     /**
      * 还有下一页
-     * @return
+     * @return boolean
      */
     public boolean hasNext(){
         return this.index < this.pages && this.pages > 1;
@@ -108,7 +108,7 @@ public class Pagination<T> implements Serializable {
 
     /**
      * 有前一页
-     * @return
+     * @return boolean
      */
     public boolean hasPrev(){
         return this.index > 1 && this.pages > 1;
@@ -123,7 +123,7 @@ public class Pagination<T> implements Serializable {
 
     /**
      * 显示出来的页码
-     * @return
+     * @return List
      */
     public List<Integer> getCards(){
         int start = this.index - 2;

@@ -16,8 +16,8 @@ public class GsonExclusion implements ExclusionStrategy {
     /**
      * 添加需要被排除的属性名称
      *
-     * @param fieldName
-     * @return
+     * @param fieldName 排除的字段名
+     * @return GsonExclusion
      */
     public GsonExclusion addExclusionField(String... fieldName) {
         if (exclusionFields == null) {

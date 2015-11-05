@@ -55,6 +55,7 @@ public class ClassUtils {
      *
      * @param baseClass the base class
      * @param childClass the child class
+     * @param <T> target class
      * @return a list of the raw classes for the actual type arguments.
      */
     public static <T> List<Class<?>> getTypeArguments(

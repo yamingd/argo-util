@@ -73,7 +73,7 @@ public final class Converts {
 
     /**
      *
-     * @param commasStr
+     * @param commasStr 逗号分隔字符串. 如"1,2,3"
      * @return List
      */
 	public static List<Long> toLong(String commasStr){
@@ -87,7 +87,7 @@ public final class Converts {
 
     /**
      *
-     * @param commasStr
+     * @param commasStr 逗号分隔字符串. 如"1,2,3"
      * @return List
      */
     public static List<Integer> toInt(String commasStr){

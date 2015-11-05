@@ -17,7 +17,7 @@ public class GsonInclusion implements ExclusionStrategy {
      * 添加只需要被转换的属性名称
      *
      * @param fieldName 属性名称的可变数组
-     * @return
+     * @return GsonInclusion
      */
     public GsonInclusion addInclusionFields(String... fieldName) {
         if (inclusionFields == null) {

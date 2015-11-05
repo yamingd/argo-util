@@ -37,12 +37,12 @@ public class JsonUtil {
     }
 
     /**
-     * 转换JSON为List<T>
-     * @param json
-     * @param itemType
-     * @param <T>
+     * 转换JSON为List
+     * @param json JSON格式的字符串
+     * @param itemType 目标类型
+     * @param <T> 目标类型
      * @return List
-     * @throws Exception
+     * @throws Exception 抛出转换异常
      */
     public static <T> List<T> asList(String json, final T[] itemType)throws Exception {
         T[] temp = (T[])gson.fromJson(json, itemType.getClass());
@@ -50,12 +50,12 @@ public class JsonUtil {
     }
 
     /**
-     * 转换二进制JSON为List<T>
-     * @param json
-     * @param itemType
-     * @param <T>
+     * 转换二进制JSON为List
+     * @param json JSON格式的字符串
+     * @param itemType 目标类型
+     * @param <T> 目标类型
      * @return List
-     * @throws Exception
+     * @throws Exception 抛出转换异常
      */
     public static <T> List<T> asList(byte[] json, final T[] itemType)throws Exception {
         T[] temp = (T[])messagePack.read(json, itemType.getClass());
@@ -63,10 +63,10 @@ public class JsonUtil {
     }
     /**
      *
-     * @param clazz
-     * @param json
-     * @param <T>
-     * @return T
+     * @param clazz 目标类型
+     * @param json JSON格式的字符串
+     * @param <T> 目标类型
+     * @return T 目标类型实例
      */
     @SuppressWarnings("unchecked")
     public static <T> T asT(Class<?> clazz, String json) {
@@ -76,11 +76,11 @@ public class JsonUtil {
 
     /**
      * 从二进制JSON转为对象
-     * @param clazz
-     * @param json
-     * @param <T>
+     * @param clazz 目标类型
+     * @param json JSON格式的字符串
+     * @param <T> 目标类型
      * @return T
-     * @throws IOException
+     * @throws IOException 抛出转换异常
      */
     public static <T> T asT(Class<?> clazz, byte[] json) throws IOException {
         if (json == null || json.length == 0)
@@ -91,7 +91,7 @@ public class JsonUtil {
     /**
      * 将一个对象转成json字符串
      *
-     * @param obj
+     * @param obj Java对象
      * @return String
      */
     public static String toJson(Object obj) {
@@ -100,9 +100,10 @@ public class JsonUtil {
 
     /**
      * 转为二进制JSON.
-     * @param obj
+     * @param obj Java对象
+     * @param <T> 目标类型
      * @return byte[]
-     * @throws Exception
+     * @throws Exception 抛出转换异常
      */
     public static <T> byte[] toBytes(T obj) throws Exception {
         if (obj == null){
@@ -113,7 +114,7 @@ public class JsonUtil {
 
     /**
      *
-     * @param json
+     * @param json JSON格式的字符串
      * @return Map
      */
     public static Map<String, Object> asMap(String json) {
@@ -123,9 +124,9 @@ public class JsonUtil {
 
     /**
      *
-     * @param json
+     * @param json 二进制数据
      * @return HashMap
-     * @throws IOException
+     * @throws IOException 抛出转换异常
      */
     public static HashMap asMap(byte[] json) throws IOException {
         if (json == null)

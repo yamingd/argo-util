@@ -7,7 +7,7 @@ public class DateRangeUtil {
 
 	/**
 	 * 获取上个月日期范围。包括起止
-	 * @return
+	 * @return Date[]
 	 */
 	public static Date[] getLastMonth(){
 		GregorianCalendar calendar = new GregorianCalendar();
@@ -32,7 +32,7 @@ public class DateRangeUtil {
 	
 	/**
 	 * 返回这个月日期范围。包括起止
-	 * @return
+	 * @return Date[]
 	 */
 	public static Date[] getThisMonth(){
 		
@@ -57,7 +57,7 @@ public class DateRangeUtil {
 	
 	/**
 	 * 获取上周日期范围。包括起止
-	 * @return
+	 * @return Date[]
 	 */
 	public static Date[] getLastWeek(){
 		/*
@@ -113,7 +113,7 @@ public class DateRangeUtil {
 	
 	/**
 	 * 获取这周日期范围。包括起止
-	 * @return
+	 * @return Date[]
 	 */
 	public static Date[] getThisWeek(){
 		/*
@@ -144,8 +144,8 @@ public class DateRangeUtil {
 	
 	/**
 	 * 获取前n天
-	 * @param days
-	 * @return
+	 * @param days 天数
+	 * @return Date
 	 */
 	public static Date getLastBefore(Integer days){
 		GregorianCalendar calendar = new GregorianCalendar();	
