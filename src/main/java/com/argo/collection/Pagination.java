@@ -31,7 +31,19 @@ public class Pagination<T> implements Serializable {
      */
     private List<T> items;
 
+    /**
+     * 页数
+     */
     private Integer pages;
+
+    /**
+     * 上一页开始游标
+     */
+    private Long prevCursorId;
+    /**
+     * 下一页开始游标
+     */
+    private Long nextCursorId;
 
     public Integer getIndex() {
         return index;
@@ -139,5 +151,21 @@ public class Pagination<T> implements Serializable {
             tmp.add(i);
         }
         return tmp;
+    }
+
+    public Long getPrevCursorId() {
+        return prevCursorId;
+    }
+
+    public void setPrevCursorId(Long prevCursorId) {
+        this.prevCursorId = prevCursorId;
+    }
+
+    public Long getNextCursorId() {
+        return nextCursorId;
+    }
+
+    public void setNextCursorId(Long nextCursorId) {
+        this.nextCursorId = nextCursorId;
     }
 }

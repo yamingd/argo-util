@@ -1,7 +1,6 @@
 package com.argo.util.json;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.alibaba.fastjson.JSON;
 import org.msgpack.MessagePack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * gson的工具类
+ * json的工具类
  *
  */
 public class JsonUtil {
@@ -22,18 +21,10 @@ public class JsonUtil {
 
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
-    public static Gson gson = null;
     protected static MessagePack messagePack;
 
     static {
         messagePack = new MessagePack();
-        //创建GsonBuilder
-        GsonBuilder builder = new GsonBuilder();
-        builder.excludeFieldsWithoutExposeAnnotation();
-        builder.registerTypeAdapter(Object.class, new NaturalDeserializer());
-        //设置时间格式
-        builder.setDateFormat(DATE_TIME_FORMAT);
-        gson = builder.create();
     }
 
     /**
@@ -45,7 +36,7 @@ public class JsonUtil {
      * @throws Exception 抛出转换异常
      */
     public static <T> List<T> asList(String json, final T[] itemType)throws Exception {
-        T[] temp = (T[])gson.fromJson(json, itemType.getClass());
+        T[] temp = (T[]) JSON.parseObject(json, itemType.getClass());
         return Arrays.asList(temp);
     }
 
@@ -71,7 +62,7 @@ public class JsonUtil {
     @SuppressWarnings("unchecked")
     public static <T> T asT(Class<?> clazz, String json) {
         if (json == null) return null;
-        return (T) gson.fromJson(json, clazz);
+        return (T) JSON.parseObject(json, clazz);
     }
 
     /**
@@ -95,7 +86,7 @@ public class JsonUtil {
      * @return String
      */
     public static String toJson(Object obj) {
-        return gson.toJson(obj);
+        return JSON.toJSONString(obj);
     }
 
     /**
@@ -119,7 +110,7 @@ public class JsonUtil {
      */
     public static Map<String, Object> asMap(String json) {
         if (json == null) return null;
-        return gson.fromJson(json, HashMap.class);
+        return JSON.parseObject(json, HashMap.class);
     }
 
     /**

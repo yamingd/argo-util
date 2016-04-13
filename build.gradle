@@ -1,5 +1,5 @@
 group 'com.github.yamingd.argo'
-version '2.1'
+version '2.2.0'
 
 apply plugin: 'maven'
 apply plugin: 'java'
@@ -34,7 +34,7 @@ dependencies {
     }
     compile 'org.apache.httpcomponents:httpmime:4.5.1'
     compile 'org.apache.commons:commons-lang3:3.1'
-    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.alibaba:fastjson:1.2.8'
     compile 'org.msgpack:msgpack:0.6.12'
     compile 'com.google.guava:guava:18.0'
     compile('org.slf4j:slf4j-api:1.7.5') {
